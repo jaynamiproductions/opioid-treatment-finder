@@ -1,5 +1,14 @@
 {% extends "home.html" %}
 
 {% block content %}
-There are {{num}} opioid treatment providers in {{name}}.
+
+{% if place == "USA" %}
+There are {{ttl}} opioid treatment providers in the United States.
+{% else %}
+<p>There are {{num}} opioid treatment providers in {{name}}.</p>
+{% for table in tables %}
+    {{ table|safe }}
+{% endfor %}
+{% endif %}
+
 {% endblock %}

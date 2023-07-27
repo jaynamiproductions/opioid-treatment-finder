@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, flash
 import requests 
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -14,21 +14,16 @@ views = Blueprint(__name__,'views')
 def home():
     if request.method == 'POST':
         state = request.form.get('state')
-        st = df[df['STATE']==state]
+        if len(state) < 1:
+            return render_template('error.html')
+        else:
+            st = df[df['STATE']==state]
+            col = st.shape[0]
+            total = df.shape[0]
+        
+            soup = BeautifulSoup(open('templates/home.html'))
+            state_name = soup.find(attrs={"value": state}).get_text()
 
-        col = st.shape[0]
-
-        soup = BeautifulSoup(open('templates/home.html'))
-        html = st.to_html()
-        state_name = soup.find(attrs={"value": state}).get_text()
-
-
-        # text_file = open('templates/index.html', 'w')
-        # text_file.write('templates/home.html')
-        # text_file = open('templates/index.html', 'a')
-        # text_file.write(html)
-
-        return render_template('index.html',num=col,name=state_name)
+            return render_template('index.html', tables=[st.to_html(classes='data',index=False)],num=col,ttl=total,place=state,name=state_name)
     else:
-    # print('There are ' + str(st.shape[0]) + ' opioid treamtent providers in ' + state + ' .')   
         return render_template('home.html')

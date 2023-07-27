@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Opioid Treatment Finder</title>
+    </head>
     <body>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            {% if category == 'error' %}
+            <div class="alert alert-danger alter-dismissable fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+            {% else %}
+            <div class="alert alert-success alter-dismissable fade show" role="alert">
+                {{ message }}
+                <buttonn type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </buttonn>
+            </div>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
         <form method="POST">
             <select            
                 class="form-control"
@@ -8,6 +32,7 @@
                 name="state"
             >
             <option value={{place}}>Selected State: {{ place }}</option>
+            <option value="USA">All of United States</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -64,8 +89,7 @@
         </form>
         <br/>
         <div>
-            {% block content %}
-            {% endblock %}
+            {% block content %}{% endblock %}
         </div>
     </body>
 </html>
