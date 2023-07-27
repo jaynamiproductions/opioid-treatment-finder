@@ -4,27 +4,15 @@
         <title>Opioid Treatment Finder</title>
     </head>
     <body>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-            {% if category == 'error' %}
-            <div class="alert alert-danger alter-dismissable fade show" role="alert">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div> 
-            {% else %}
-            <div class="alert alert-success alter-dismissable fade show" role="alert">
-                {{ message }}
-                <buttonn type="button" class="close" data-dismiss="alert">
-                    <span aria-hidden="true">&times;</span>
-                </buttonn>
-            </div>
-            {% endif %}
-            {% endfor %}
-        {% endif %}
-        {% endwith %}
+
+        <h1 align="center">Find Providers to Treat Opioid Use Disorder</h1>
+        <div>
+            <p align="center">Search for providers enrolled in Medicare under the Opioid Treatment Program.</p>
+            <p align="center"><sup>1</sup>To enroll in Medicare, Opioid Treatment Plan (OTP) providers must be fully 
+            certified by the Substance Abuse and Mental Health Services (SAMHSA) and 
+            accredited by a SAMHSA approved accrediting body.</p>
+        </div>
+
         <form method="POST">
             <select            
                 class="form-control"
@@ -92,4 +80,13 @@
             {% block content %}{% endblock %}
         </div>
     </body>
+    <section>
+        <p align="center"><sup>1</sup><a href="https://data.cms.gov/resources/opioid-treatment-program-providers-methodology">Opioid Treatment Program Providers Methodology</a></p>
+        <p align="center">API provided by <a href="https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/opioid-treatment-program-providers">Centers for Medicare & Medicaid Services</a></p>
+        <hr>
+        <p align="center">Powered by Jaynami Productions</p>
+        <p align="center"><a href="https://github.com/jaynamiproductions">GitHub</a></p>
+        <p align="center"><a href="https://www.linkedin.com/in/jasonleeyn/">LinkedIn</a></p>
+
+    </section>
 </html>
