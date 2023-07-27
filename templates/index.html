@@ -4,6 +4,7 @@
 
 {% if place == "USA" %}
 <p>There are {{ttl}} opioid treatment providers in the United States.</p>
+<p><b>Select a state to view a table of the providers.</b></p>
 {% else %}
 <p>There are {{num}} opioid treatment providers in {{name}}.</p>
 {% for table in tables %}
