@@ -26,3 +26,8 @@ def home():
             return render_template('index.html', tables=[st.to_html(classes='data',index=False)],num=col,ttl=total,place=state,name=state_name)
     else:
         return render_template('home.html')
+    
+
+@views.route('/otp-faq')
+def faq():
+    return render_template('faq.html')

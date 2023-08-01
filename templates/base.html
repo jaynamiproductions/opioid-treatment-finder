@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            crossorigin="anonymous"
+        />
+        <title>Opioid Treatment Finder</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" id="searchtool" href="/">Search Tool</a>
+                    <a class="nav-item nav-link" id="optfaq" href="/otp-faq">Opioid Treatment Program FAQ</a>
+                    <a class="nav-item nav-link" id="aboutus" href="/logout">About Us</a>
+                </div>
+            </div>
+        </nav>
+        <br/>
+        <div class="container">
+            {% block stuff %}{% endblock %}
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+        
+    </body>
+    <br/>
+    <section style="background-color: lightgray; ">
+        <hr>
+        <p align="center">API provided by <a href="https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/opioid-treatment-program-providers">Centers for Medicare & Medicaid Services</a></p>
+        <p align="center">
+            <sup>1</sup><a href="https://www.cms.gov/medicare/medicare-fee-for-service-payment/opioid-treatment-program">Opioid Treatment Programs (OTP)</a>, 
+            <sup>2</sup><a href="https://www.samhsa.gov/medications-substance-use-disorders/become-accredited-opioid-treatment-program">Certification of Opioid Treatment Programs (OTPs)</a>, 
+            <sup>3</sup><a href="https://data.cms.gov/resources/opioid-treatment-program-providers-methodology">Opioid Treatment Program Providers Methodology</a>
+    
+    
+        <hr>
+        <p align="center">Powered by Jaynami Productions</p>
+        <p align="center">
+            <a href="https://github.com/jaynamiproductions">GitHub</a> | 
+            <a href="https://www.linkedin.com/in/jasonleeyn/">LinkedIn</a>
+        </p>
+        
+        <center>
+            <img src="static/logo3_transparent.png" alt="logo" width="500" height="270"/>
+        </center>
+    </section>
+</html>
