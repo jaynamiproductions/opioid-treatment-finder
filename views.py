@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request
 import requests 
 import pandas as pd
 from bs4 import BeautifulSoup
