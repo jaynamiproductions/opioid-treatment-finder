@@ -44,8 +44,7 @@ def check():
         if len(npi) < 1:
             flash('No entry made.',category='error') 
         elif len(npi) != 10:
-            flash('NPI is invalid.',category='error')
-            
+            flash(npi + ' is invalid.',category='error')
         elif npi.startswith('1') or npi.startswith('2'):
             new = npi[-2::-1]
             test = ''
@@ -58,9 +57,9 @@ def check():
             final = sum(total)+24
             check = 10 - (final%10)
             if check == int(npi[-1]):
-                flash('NPI is valid.',category='success')
+                flash(npi + ' is valid.',category='success')
             else:
-                flash('NPI is invalid.',category='error')
+                flash(npi + ' is invalid.',category='error')
         return render_template('npi.html',num=npi)
     else:
         return render_template('npi.html')
