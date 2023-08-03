@@ -26,12 +26,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" id="searchtool" href="/">Provider Search Tool</a>
+                    <a class="nav-item nav-link" id="searchtool" href="/">Provider Search Engine</a>
                     <a class="nav-item nav-link" id="optfaq" href="/otp-faq">Opioid Treatment Program FAQ</a>
+                    <a class="nav-item nav-link" id="aboutus" href="/npi-validation">NPI Validation Tool</a>
                     <a class="nav-item nav-link" id="aboutus" href="/about">About Us</a>
                 </div>
             </div>
         </nav>
+
+
         <br/>
         <div class="container">
             {% block stuff %}{% endblock %}
@@ -56,15 +59,42 @@
     </body>
     <br/>
     <section style="background-color: lightgray; ">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %} 
+            {% for category, message in messages %}
+            {% if category =='error' %}
+            <div class="alert alert-danger alter-dismissable fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% else %}
+            <div class="alert alert-success alter-dismissable fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
         <hr>
+        <div class="container">
         <p align="center">API provided by <a href="https://data.cms.gov/provider-characteristics/medicare-provider-supplier-enrollment/opioid-treatment-program-providers">Centers for Medicare & Medicaid Services</a></p>
         <p align="center">
-            <sup>1</sup><a href="https://www.cms.gov/medicare/medicare-fee-for-service-payment/opioid-treatment-program">Opioid Treatment Programs (OTP)</a>, 
-            <sup>2</sup><a href="https://www.samhsa.gov/medications-substance-use-disorders/become-accredited-opioid-treatment-program">Certification of Opioid Treatment Programs (OTPs)</a>, 
+            <sup>1</sup><a href="https://www.cms.gov/medicare/medicare-fee-for-service-payment/opioid-treatment-program">Opioid Treatment Programs (OTP)</a>
+            <sup>2</sup><a href="https://www.samhsa.gov/medications-substance-use-disorders/become-accredited-opioid-treatment-program">Certification of Opioid Treatment Programs (OTPs)</a>
             <sup>3</sup><a href="https://data.cms.gov/resources/opioid-treatment-program-providers-methodology">Opioid Treatment Program Providers Methodology</a>
+            <sup>4</sup><a href="https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/NationalProvIdentStand">National Provider Identifier Standard (NPI)</a>
+            <sup>5</sup><a href="https://oasas.ny.gov/national-provider-identifier-npi">The National Provider Identifier (NPI)</a>
+            <sup>6</sup><a href="https://www.cms.gov/outreach-and-education/medicare-learning-network-mln/mlnproducts/downloads/npi-what-you-need-to-know.pdf">NPI: What You Need to Know</a>
+            <sup>7</sup><a href="https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/NationalProvIdentStand/Downloads/NPIcheckdigit.pdf">Requirements for National Provider Identifier (NPI) and NPI Check Digit</a>
     
     
         <hr>
+        </div>
         <p align="center">Powered by Jaynami Productions</p>
         <p align="center">
             <a href="https://github.com/jaynamiproductions">GitHub</a> | 

@@ -1,1 +1,36 @@
 {% extends "base.html" %}
+
+{% block stuff %}
+<h1 align="center">National Provider Identifier Validation Tool</h1>
+
+<br/>
+<p><sup>4</sup>The National Provider Identifier (NPI) is a unique 
+identification number for covered health care providers.
+<sup>5</sup>HIPAA requires providers to adopt and utilize a unique NPI
+when transmitting health information electronically. <sup>6</sup>Medicare requires enrolled
+providers to have an NPI.</p>
+
+<p>Several measures are put in place to prevent healthcare fraud. 
+In rare occurences, fake NPIs may be used to bypass certain billing or prescribing requirements.</p>
+
+<p><sup>7</sup>The National Committee for Information Technology Standards (NCITS) 
+    developed a standard to create unique NPIs using the Luhn check digit formula.</p>
+
+<p>This application will validate a given NPI based on the Luhn formula. </p>
+<form method="POST">
+    <div class="form-group">
+    <label for="npi"><b>Enter National Provider Identifier - with or without prefix: </b></label>
+    <input
+        type="text"           
+        class="form-control"
+        id="npi"
+        name="npi"
+        value="{{num}}"
+    >
+    </div> 
+    <br/>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{num}}
+{% endblock %}
