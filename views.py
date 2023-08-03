@@ -43,9 +43,9 @@ def check():
         npi = request.form.get('npi')
         if len(npi) < 1:
             flash('No entry made.',category='error') 
-            
         elif len(npi) != 10:
             flash('NPI is invalid.',category='error')
+            
         elif npi.startswith('1') or npi.startswith('2'):
             new = npi[-2::-1]
             test = ''
