@@ -31,3 +31,11 @@ def home():
 @views.route('/otp-faq')
 def faq():
     return render_template('faq.html')
+
+@views.route('/about')
+def about():
+    return render_template('about.html')
+
+@views.route('/npi-validation')
+def npi():
+    return render_template('npi.html')

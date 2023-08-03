@@ -16,6 +16,9 @@
         />
         <title>Opioid Treatment Finder</title>
     </head>
+    {% block style %}
+    {% endblock %}
+
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -23,9 +26,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" id="searchtool" href="/">Search Tool</a>
+                    <a class="nav-item nav-link" id="searchtool" href="/">Provider Search Tool</a>
                     <a class="nav-item nav-link" id="optfaq" href="/otp-faq">Opioid Treatment Program FAQ</a>
-                    <a class="nav-item nav-link" id="aboutus" href="/logout">About Us</a>
+                    <a class="nav-item nav-link" id="aboutus" href="/about">About Us</a>
                 </div>
             </div>
         </nav>
