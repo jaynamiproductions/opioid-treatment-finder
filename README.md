@@ -1,4 +1,4 @@
-<h5>Web application to find opioid treatment providers across the U.S</h5>
+<h3>Web application to find opioid treatment providers across the U.S</h3>
 <p>Features include:
     <ul>
         <li>Opioid Treatment Programs Search Engine</li>
