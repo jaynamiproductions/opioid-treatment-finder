@@ -61,8 +61,6 @@ def check():
                 flash('NPI is valid.',category='success')
             else:
                 flash('NPI is invalid.',category='error')
-        if len(npi) != 15:
-            flash('NPI is invalid.',category='error')
         return render_template('npi.html',num=npi)
     else:
         return render_template('npi.html')
