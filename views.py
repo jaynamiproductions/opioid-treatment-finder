@@ -21,7 +21,7 @@ def home():
             col = st.shape[0]
             total = df.shape[0]
         
-            soup = BeautifulSoup(open('~/templates/home.html'))
+            soup = BeautifulSoup(open('~/home/jaynamiproductions/opioid-treatment-finder/templates'))
             state_name = soup.find(attrs={"value": state}).get_text()
 
             return render_template('index.html', tables=[st.to_html(classes='data',index=False)],num=col,ttl=total,place=state,name=state_name)
