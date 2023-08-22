@@ -4,7 +4,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 
 api = 'https://data.cms.gov/data-api/v1/dataset/f1a8c197-b53d-4c24-9770-aea5d5a97dfb/data?size=1500'
-resp = requests.get(api,verify=False).json()
+resp = requests.get(api).json()
 df = pd.DataFrame(resp)
 
 views = Blueprint(__name__,'views')
@@ -20,11 +20,27 @@ def home():
             st = df[df['STATE']==state]
             col = st.shape[0]
             total = df.shape[0]
-        
+
+            npi_col = st['NPI']
+            prov_col = st['PROVIDER NAME'].str.title()
+            addr1 = st['ADDRESS LINE 1'].str.title()
+            addr2 = st['ADDRESS LINE 2'].str.title()
+            city = st['CITY'].str.title()
+            state_col = st['STATE']
+            zip_col = st['ZIP']
+            date_col = st['MEDICARE ID EFFECTIVE DATE']
+            phone = st['PHONE']
+            infos = zip(npi_col,prov_col,addr1,addr2,city,state_col,zip_col,date_col,phone)
+    
             soup = BeautifulSoup(open('/home/jaynamiproductions/opioid-treatment-finder/templates/home.html'))
             state_name = soup.find(attrs={"value": state}).get_text()
 
-            return render_template('index.html', tables=[st.to_html(classes='data',index=False)],num=col,ttl=total,place=state,name=state_name)
+            return render_template('index.html',
+                                   num=col,
+                                   ttl=total,
+                                   place=state,
+                                   name=state_name,
+                                   infos=infos)
     else:
         return render_template('home.html')
     

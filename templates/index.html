@@ -3,12 +3,18 @@
 {% block content %}
 
 {% if place == "USA" %}
-<p>There are {{ttl}} opioid treatment providers in the United States.</p>
-<p><b>Select a state to view a table of the providers.</b></p>
+<h4 align="center">{{name}}: {{ttl}} Opioid Treatment Providers</h4>
+<h6 align="center"><b>Select a state to view a list of the providers.</b></h6>
 {% else %}
-<p>There are {{num}} opioid treatment providers in {{name}}.</p>
-{% for table in tables %}
-    {{ table|safe }}
+<h4 align="center">{{name}}: {{num}} Opioid Treatment Providers</h3>
+
+{% for npi,prov,ad1,ad2,city,st,zip,date,phone in infos %}
+    <hr style="height:2px;background-color: #333">
+    <p><b>Provider Name:</b> {{prov}}   <b>NPI:</b> {{npi}}</p>
+    <p><b>City:</b> {{city}}    <b>State:</b> {{st}}    <b>Zip Code:</b> {{zip}}</p>
+    <p><b>Address Line 1:</b> {{ad1}}   <b>Address Line 2:</b> {{ad2}}</p>
+    <p><b>Medicare ID Effective Date:</b> {{date}}</p>
+    <p><b>Phone Number:</b> {{phone}}</p>
 {% endfor %}
 {% endif %}
 
