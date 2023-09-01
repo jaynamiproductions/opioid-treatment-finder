@@ -10,7 +10,8 @@
 
 {% for npi,prov,ad1,ad2,city,st,zip,date,phone in infos %}
     <hr style="height:2px;background-color: #333">
-    <p><b>Provider Name:</b> {{prov}}   <b>NPI:</b> {{npi}}</p>
+    <font size="+2"><p>{{prov}}</p></font>
+    <p><b>NPI:</b> {{npi}}</p>
     <p><b>City:</b> {{city}}    <b>State:</b> {{st}}    <b>Zip Code:</b> {{zip}}</p>
     <p><b>Address Line 1:</b> {{ad1}}   <b>Address Line 2:</b> {{ad2}}</p>
     <p><b>Medicare ID Effective Date:</b> {{date}}</p>
