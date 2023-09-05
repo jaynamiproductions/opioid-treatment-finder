@@ -9,7 +9,7 @@ df = pd.DataFrame(resp)
 
 views = Blueprint(__name__,'views')
 
-@views.route('/', methods=['GET','POST'])
+@views.route('/opd-treatment', methods=['GET','POST'])
 def home():
     if request.method == 'POST':
         state = request.form.get('state')
@@ -49,7 +49,7 @@ def home():
 def faq():
     return render_template('faq.html')
 
-@views.route('/about')
+@views.route('/')
 def about():
     return render_template('about.html')
 
